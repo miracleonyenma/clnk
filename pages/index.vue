@@ -9,5 +9,8 @@
         <p class="lg:text-xl">Shorten your URLs and share them with others</p>
       </div>
     </header>
+    <section class="site-section">
+      <div class="wrapper"></div>
+    </section>
   </main>
 </template>
