@@ -1,6 +1,6 @@
 {
-  "name": "Mini Link",
-  "short_name": "mlnk",
+  "name": "Code Link",
+  "short_name": "Clnk",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

@@ -13,7 +13,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Tight", ...defaultTheme.fontFamily.sans],
+        sans: ["Urbanist", ...defaultTheme.fontFamily.sans],
       },
     },
   },

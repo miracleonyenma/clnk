@@ -3,5 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-50 text-zinc-800;
+  @apply bg-gray-50 text-gray-700;
+}
+
+@layer components {
+  .site-section {
+    @apply py-24;
+  }
+
+  .site-section > .wrapper {
+    @apply mx-auto max-w-5xl p-4;
+  }
 }
