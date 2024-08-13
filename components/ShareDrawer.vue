@@ -59,7 +59,7 @@ const shareCode = async () => {
     return share({
       title: props.url.code,
       text: `Check out my code link: ${props.url.code}`,
-      url: props.url.url,
+      url: props.url.shortUrl,
       files: [file],
     });
   } catch (error) {

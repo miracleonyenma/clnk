@@ -7,7 +7,7 @@ const useURLStore = defineStore("urls", () => {
   const addURL = (url: URL) => {
     // check if the url already exists
     if (urls.value.find((u) => u.id === url.id)) return;
-    urls.value = [...urls.value, url];
+    urls.value = [url, ...urls.value];
     console.log({ urls: urls.value });
   };
 
@@ -16,7 +16,7 @@ const useURLStore = defineStore("urls", () => {
     const newUrls = urlList.filter(
       (url) => !urls.value.find((u) => u.id === url.id),
     );
-    urls.value = [...urls.value, ...newUrls];
+    urls.value = [...newUrls, ...urls.value];
   };
 
   const removeURL = (id: string) => {
