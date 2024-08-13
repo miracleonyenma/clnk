@@ -15,6 +15,12 @@ const options: Options = {
   height: 300,
   type: "canvas",
   data: props.data,
+  image: "/img/clnk-icon@2x.png",
+  imageOptions: {
+    hideBackgroundDots: true,
+    imageSize: 0.28,
+    margin: 8,
+  },
   ...props.options,
 };
 
