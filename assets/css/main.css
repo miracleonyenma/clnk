@@ -39,7 +39,7 @@ h6 {
   }
 
   .form-input input {
-    @apply w-full !bg-transparent px-10 py-3;
+    @apply w-full rounded-xl !bg-transparent px-10 py-3;
   }
 
   .form-input:has(input) {
