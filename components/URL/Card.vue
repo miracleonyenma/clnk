@@ -20,10 +20,14 @@ const handleCopy = () => {
     error: (error) => `Failed to copy: ${error}`,
   });
 };
+
+const handleComingSoon = () => {
+  toast.info("Coming soon");
+};
 </script>
 <template>
   <div
-    :class="`url-card group relative w-full hover:z-20`"
+    :class="`url-card group relative w-full hover:z-50 hover:!rotate-0`"
     :style="{
       // a random number between -15 degrees to 15 degrees
       '--tw-rotate': `${props.mode !== 'share' && Math.random() * 20 - 10}deg`,
@@ -83,13 +87,13 @@ const handleCopy = () => {
             class="action-cont flex justify-between gap-4"
           >
             <div class="action-group flex gap-2 pb-1">
-              <button class="btn danger">
+              <button @click="handleComingSoon" class="btn danger">
                 <UIcon
                   name="i-solar:trash-bin-minimalistic-bold-duotone"
                   class="icon"
                 />
               </button>
-              <button class="btn secondary">
+              <button @click="handleComingSoon" class="btn secondary">
                 <UIcon name="i-solar:pen-bold-duotone" class="icon" />
               </button>
             </div>

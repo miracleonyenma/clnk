@@ -16,7 +16,7 @@ const urlStore = useURLStore();
         </p>
       </div>
     </header>
-    <section :class="`site-section ${!urlStore.urls.length && '!py-0'}`">
+    <section :class="`site-section py-0 ${urlStore.urls.length && '!pb-16'}`">
       <div :class="`wrapper !max-w-6xl ${!urlStore.urls.length && '!py-0'}`">
         <URLList />
       </div>
