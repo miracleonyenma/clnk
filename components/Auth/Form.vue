@@ -183,8 +183,8 @@ watch(
               <UIcon
                 :name="
                   !passwordVisible
-                    ? `i-solar:eye-closed-line-duotone`
-                    : `i-solar:eye-line-duotone`
+                    ? `i-solar:eye-closed-bold-duotone`
+                    : `i-solar:eye-bold-duotone`
                 "
                 class="icon"
               />

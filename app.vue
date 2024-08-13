@@ -101,19 +101,19 @@ useHead({
       href: "/safari-pinned-tab.svg",
       color: "#5bbad5",
     },
-    {
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-    },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossorigin: "",
-    },
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gupter:wght@400;500;700&family=Imbue:opsz,wght@10..100,100..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oranienbaum&display=swap",
-    },
+    // {
+    //   rel: "preconnect",
+    //   href: "https://fonts.googleapis.com",
+    // },
+    // {
+    //   rel: "preconnect",
+    //   href: "https://fonts.gstatic.com",
+    //   crossorigin: "",
+    // },
+    // {
+    //   rel: "stylesheet",
+    //   href: "https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gupter:wght@400;500;700&family=Imbue:opsz,wght@10..100,100..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oranienbaum&display=swap",
+    // },
   ],
   htmlAttrs: {
     // class: "dark",

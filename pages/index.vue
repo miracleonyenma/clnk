@@ -1,6 +1,11 @@
+<script setup lang="ts">
+import useURLStore from "~/store/useURLStore";
+
+const urlStore = useURLStore();
+</script>
 <template>
   <main class="site-main">
-    <header class="site-section">
+    <header class="site-section max-lg:pb-0">
       <div class="wrapper !py- flex flex-col gap-1 text-center">
         <h1 class="font-heading text-5xl font-medium lg:text-6xl 2xl:text-8xl">
           Create your own
@@ -11,14 +16,14 @@
         </p>
       </div>
     </header>
-    <section class="site-section !py-6">
-      <div class="wrapper">
-        <GenerateCodeForm />
+    <section :class="`site-section ${!urlStore.urls.length && '!py-0'}`">
+      <div :class="`wrapper !max-w-6xl ${!urlStore.urls.length && '!py-0'}`">
+        <URLList />
       </div>
     </section>
-    <section class="site-section">
-      <div class="wrapper !max-w-6xl">
-        <URLList />
+    <section class="site-section sticky bottom-0 z-40 !py-6">
+      <div class="wrapper !py-0">
+        <GenerateCodeForm />
       </div>
     </section>
   </main>

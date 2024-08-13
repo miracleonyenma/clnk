@@ -74,7 +74,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
 
 <template>
   <div
-    class="form-cont rounded-2xl border border-gray-200 bg-gray-50 p-3 shadow-inner shadow-white dark:border-gray-800 dark:bg-gray-900 dark:shadow-gray-800 lg:p-8"
+    class="form-cont sticky top-4 rounded-2xl border border-gray-200 bg-gray-50 p-3 shadow-inner shadow-white dark:border-gray-800 dark:bg-gray-900 dark:shadow-gray-800 lg:p-8"
   >
     <UForm
       :ref="form"

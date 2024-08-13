@@ -40,7 +40,7 @@ const items = [
   [
     {
       label: "Sign out",
-      icon: "i-heroicons-arrow-left-on-rectangle",
+      icon: "i-solar:logout-2-bold-duotone",
       click: handleLogout,
     },
   ],

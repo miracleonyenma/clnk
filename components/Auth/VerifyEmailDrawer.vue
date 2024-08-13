@@ -37,7 +37,7 @@ const open = ref(props.open);
           <div
             class="mx-auto flex max-w-md flex-col items-center gap-2 text-center"
           >
-            <UIcon name="i-solar:letter-line-duotone" class="h-32 w-32" />
+            <UIcon name="i-solar:letter-bold-duotone" class="h-32 w-32" />
 
             <p>
               We have sent a verification code to your email address:

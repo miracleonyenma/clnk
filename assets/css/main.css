@@ -51,8 +51,8 @@ h6 {
   }
 
   .btn {
-    @apply inline-flex justify-center rounded-xl border border-gray-200 bg-gray-100 px-4 py-2 font-heading text-gray-600 shadow-inner shadow-white transition-all focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-gray-50 active:scale-95 active:shadow-gray-200/60;
-    @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:shadow-gray-600 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-800 dark:active:shadow-gray-900;
+    @apply inline-flex justify-center rounded-xl border border-gray-300 bg-gray-200 px-4 py-2 font-heading text-gray-600 shadow-inner shadow-white transition-all focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-gray-50 active:scale-95 active:shadow-gray-300/80;
+    @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:shadow-gray-600 dark:ring-offset-gray-800 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-800 dark:active:shadow-gray-900;
   }
 
   .btn.secondary {

@@ -7,6 +7,7 @@ const { copyToClipboard } = useClipboard();
 const props = defineProps<{
   url: URL;
   id: string;
+  mode?: "view" | "share";
 }>();
 
 const handleCopy = () => {
@@ -22,11 +23,13 @@ const handleCopy = () => {
     :class="`url-card group relative w-full hover:z-20`"
     :style="{
       // a random number between -15 degrees to 15 degrees
-      '--tw-rotate': `${Math.random() * 20 - 10}deg`,
+      '--tw-rotate': `${props.mode !== 'share' && Math.random() * 20 - 10}deg`,
     }"
   >
     <div
-      class="wrapper absolute flex w-full flex-col gap-4 rounded-2xl shadow-2xl"
+      :class="`wrapper flex w-full flex-col gap-4 rounded-2xl shadow-2xl ${
+        props.mode !== 'share' && 'absolute'
+      }`"
     >
       <div
         class="rounded-2xl border border-gray-200 bg-gray-50 p-6 shadow-inner shadow-white dark:border-gray-700 dark:bg-gray-900 dark:shadow-gray-700"
@@ -38,7 +41,9 @@ const handleCopy = () => {
         </ClientOnly>
 
         <div
-          class="flex max-h-0 flex-col gap-4 overflow-y-clip transition-all group-hover:max-h-[999px]"
+          :class="`flex flex-col gap-4 overflow-y-clip transition-all group-hover:max-h-[999px] ${
+            props.mode === 'share' ? 'max-h-[999px]' : 'max-h-[0]'
+          }`"
         >
           <div class="flex flex-col pt-2">
             <div class="flex flex-wrap items-center justify-between gap-2 py-1">
@@ -49,16 +54,16 @@ const handleCopy = () => {
               </h3>
               <div class="action-cont inline-flex flex-wrap gap-1">
                 <button @click="handleCopy" class="btn md">
-                  <UIcon name="i-solar:copy-line-duotone" class="icon" />
+                  <UIcon name="i-solar:copy-bold-duotone" class="icon" />
                 </button>
-                <ShareDrawer>
+                <ShareDrawer v-if="mode !== 'share'" :url="url">
                   <button class="btn md">
-                    <UIcon name="i-solar:share-line-duotone" class="icon" />
+                    <UIcon name="i-solar:share-bold-duotone" class="icon" />
                   </button>
                 </ShareDrawer>
               </div>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col text-left">
               <ULink
                 :to="url.shortUrl"
                 target="_blank"
@@ -70,24 +75,27 @@ const handleCopy = () => {
             </div>
           </div>
 
-          <div class="action-cont flex justify-between gap-4">
+          <div
+            v-if="mode !== 'share'"
+            class="action-cont flex justify-between gap-4"
+          >
             <div class="action-group flex gap-2 pb-1">
               <button class="btn danger">
                 <UIcon
-                  name="i-solar:trash-bin-minimalistic-line-duotone"
+                  name="i-solar:trash-bin-minimalistic-bold-duotone"
                   class="icon"
                 />
               </button>
               <button class="btn secondary">
-                <UIcon name="i-solar:pen-line-duotone" class="icon" />
+                <UIcon name="i-solar:pen-bold-duotone" class="icon" />
               </button>
             </div>
             <!-- <div class="action-group flex gap-2">
             <button class="btn">
-              <UIcon name="i-solar:copy-line-duotone" class="icon" />
+              <UIcon name="i-solar:copy-bold-duotone" class="icon" />
             </button>
             <button class="btn">
-              <UIcon name="i-solar:share-line-duotone" class="icon" />
+              <UIcon name="i-solar:share-bold-duotone" class="icon" />
             </button>
           </div> -->
           </div>

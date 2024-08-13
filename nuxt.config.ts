@@ -26,5 +26,6 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxt/ui",
     "@pinia/nuxt",
+    "@nuxt/fonts"
   ],
 });

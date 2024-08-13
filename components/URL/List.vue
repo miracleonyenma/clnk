@@ -86,7 +86,7 @@ onMounted(() => {
 </script>
 <template>
   <ul
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4"
+    class="grid gap-4 px-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 xl:grid-cols-4"
   >
     <li v-for="url in urls" :key="url.id" class="relative">
       <URLCard :id="url.id" :url="url" />
