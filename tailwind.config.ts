@@ -13,11 +13,21 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Urbanist", ...defaultTheme.fontFamily.sans],
+        heading: [
+          "'Instrument Serif'",
+          "'Brygada 1918'",
+          "'Old Standard TT'",
+          "Gupter",
+          "Oranienbaum",
+          "Imbue",
+          "EB Garamond",
+          ...defaultTheme.fontFamily.sans,
+        ],
+        sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 } satisfies Config;
 
 export default config;

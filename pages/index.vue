@@ -1,16 +1,25 @@
 <template>
   <main class="site-main">
     <header class="site-section">
-      <div class="wrapper flex flex-col gap-1 text-center">
-        <h1 class="text-4xl font-bold lg:text-8xl">
-          Create your own <br />
-          <span class="text-teal-600"> code links </span>
+      <div class="wrapper !py- flex flex-col gap-1 text-center">
+        <h1 class="font-heading text-5xl font-medium lg:text-6xl 2xl:text-8xl">
+          Create your own
+          <span class="text-nowrap text-teal-600"> code links </span>
         </h1>
-        <p class="lg:text-xl">Shorten your URLs and share them with others</p>
+        <p class="mx-auto w-[70%] lg:text-xl">
+          Shorten your URLs, and share them with others
+        </p>
       </div>
     </header>
+    <section class="site-section !py-6">
+      <div class="wrapper">
+        <GenerateCodeForm />
+      </div>
+    </section>
     <section class="site-section">
-      <div class="wrapper"></div>
+      <div class="wrapper !max-w-6xl">
+        <URLList />
+      </div>
     </section>
   </main>
 </template>

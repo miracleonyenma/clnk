@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { Toaster } from "vue-sonner";
 const route = useRoute();
 const metaTitle = (route.meta.title || "Home") as string;
-const description = `Code Link is a minimal link shortner`;
+const description = `QR Link is a minimal link shortner`;
 const metaDescription = (route.meta.description || description) as string;
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return `${titleChunk} | clnk`;
+    return `${titleChunk} | qlnk`;
   },
   title: metaTitle,
   meta: [
@@ -24,7 +25,7 @@ useHead({
     {
       key: "og-url",
       property: "og:url",
-      content: `https://clnk.netlify.app/`, // Update with OpenKids Africa's website URL
+      content: `https://qlnk.netlify.app/`, // Update with OpenKids Africa's website URL
     },
     {
       key: "og-title",
@@ -39,7 +40,7 @@ useHead({
     {
       key: "og-image",
       property: "og:image",
-      content: `https://clnk.netlify.app/img/clnk-cover.png`, // Update with OpenKids Africa's image URL
+      content: `https://qlnk.netlify.app/img/qlnk-cover.png`, // Update with OpenKids Africa's image URL
     },
     //Twitter
     {
@@ -50,7 +51,7 @@ useHead({
     {
       key: "twitter-url",
       property: "twitter:url",
-      content: `https://clnk.netlify.app/`, // Update with OpenKids Africa's website URL
+      content: `https://qlnk.netlify.app/`, // Update with OpenKids Africa's website URL
     },
     {
       key: "twitter-title",
@@ -65,7 +66,7 @@ useHead({
     {
       key: "twitter-image",
       property: "twitter:image",
-      content: `https://clnk.netlify.app/img/clnk-cover.png`, // Update with OpenKids Africa's image URL
+      content: `https://qlnk.netlify.app/img/qlnk-cover.png`, // Update with OpenKids Africa's image URL
     },
   ],
   link: [
@@ -111,7 +112,7 @@ useHead({
     },
     {
       rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gupter:wght@400;500;700&family=Imbue:opsz,wght@10..100,100..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oranienbaum&display=swap",
     },
   ],
   htmlAttrs: {
@@ -121,6 +122,7 @@ useHead({
 </script>
 <template>
   <div>
+    <Toaster richColors />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
