@@ -6,6 +6,8 @@ const props = defineProps<{
   data: string;
   options?: Partial<QRCodeStyling>;
 }>();
+const emit = defineEmits(["update-download"]);
+
 const { $qrCodeStyling } = useNuxtApp();
 const qrCode = ref<HTMLElement | null>(null);
 const options: Options = {
@@ -27,6 +29,7 @@ onMounted(() => {
   console.log({ qrCode: qrCode.value, qrCodeStyling, elementById });
 
   if (qrCode.value) {
+    emit("update-download", qrCodeStyling.download);
     qrCodeStyling.append(qrCode.value);
     qrCode.value!.firstElementChild!.setAttribute(
       "viewBox",

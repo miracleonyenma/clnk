@@ -3,12 +3,15 @@ import { toast } from "vue-sonner";
 import type { URL } from "~/types/url";
 import { useClipboard } from "~/composables/useClipboard";
 
-const { copyToClipboard } = useClipboard();
 const props = defineProps<{
   url: URL;
   id: string;
   mode?: "view" | "share";
 }>();
+
+const emit = defineEmits(["update-download"]);
+
+const { copyToClipboard } = useClipboard();
 
 const handleCopy = () => {
   toast.promise(copyToClipboard(props.url.shortUrl), {

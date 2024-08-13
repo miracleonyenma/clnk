@@ -7,6 +7,7 @@ import {
   DrawerTrigger,
   DrawerTitle,
 } from "vaul-vue";
+import { toast } from "vue-sonner";
 import type { URL } from "~/types/url";
 
 const props = defineProps<{
@@ -16,8 +17,11 @@ const props = defineProps<{
 
 const { $htmlToImage } = useNuxtApp();
 
+const { share } = useShare();
+const { copyToClipboard } = useClipboard();
 const open = ref(props.open);
 const contRef = ref<HTMLElement | null>(null);
+const loading = ref<boolean>(false);
 
 const handleConvertToImage = async () => {
   const cont = contRef.value;
@@ -37,6 +41,49 @@ const handleConvertToImage = async () => {
     URL.revokeObjectURL(url);
   });
 };
+
+const handleCopy = () => {
+  toast.promise(copyToClipboard(props.url.shortUrl), {
+    loading: "Copying...",
+    success: (data) => `Copied ${data} to clipboard`,
+    error: (error) => `Failed to copy: ${error}`,
+  });
+};
+
+const shareCode = async () => {
+  if (!contRef.value) return;
+  try {
+    const blob = await $htmlToImage.toBlob(contRef.value);
+    if (!blob) return;
+    const file = new File([blob], "clnk-share.png", { type: blob.type });
+    return share({
+      title: props.url.code,
+      text: `Check out my code link: ${props.url.code}`,
+      url: props.url.url,
+      files: [file],
+    });
+  } catch (error) {
+    console.log("🚨🚨🚨🚨🚨🚨 ~ error", error);
+    throw error;
+  }
+};
+
+const handleShareCode = () =>
+  toast.promise(shareCode, {
+    loading: () => {
+      loading.value = true;
+      return "Sharing code...";
+    },
+    success: () => "Code shared successfully",
+    error: (error) => {
+      handleCopy();
+
+      return `Failed to share code: ${error}`;
+    },
+    finally: () => {
+      loading.value = false;
+    },
+  });
 </script>
 
 <template>
@@ -65,12 +112,12 @@ const handleConvertToImage = async () => {
               <URLCard :id="url.id + 'share'" :url="url" mode="share" />
             </div>
           </div>
-          <div class="action-cont mx-auto flex max-w-md justify-center">
+          <div class="action-cont mx-auto flex max-w-md justify-center gap-4">
             <button @click="handleConvertToImage" class="btn primary">
               <UIcon name="i-solar:download-bold-duotone" class="icon" />
             </button>
-            <button class="btn primary">
-              <UIcon name="i-solar:qr-code-bold-duotone" class="icon" />
+            <button @click="handleShareCode" class="btn primary">
+              <UIcon name="i-solar:share-bold-duotone" class="icon" />
             </button>
           </div>
         </div>
