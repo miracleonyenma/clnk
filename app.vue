@@ -7,7 +7,7 @@ const metaDescription = (route.meta.description || description) as string;
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return `${titleChunk} | qlnk`;
+    return `${titleChunk} | clnk`;
   },
   title: metaTitle,
   meta: [
@@ -25,7 +25,7 @@ useHead({
     {
       key: "og-url",
       property: "og:url",
-      content: `https://qlnk.netlify.app/`, // Update with OpenKids Africa's website URL
+      content: `https://clnk.netlify.app/`, // Update with OpenKids Africa's website URL
     },
     {
       key: "og-title",
@@ -40,7 +40,7 @@ useHead({
     {
       key: "og-image",
       property: "og:image",
-      content: `https://qlnk.netlify.app/img/qlnk-cover.png`, // Update with OpenKids Africa's image URL
+      content: `https://clnk.netlify.app/img/clnk-cover.png`, // Update with OpenKids Africa's image URL
     },
     //Twitter
     {
@@ -51,7 +51,7 @@ useHead({
     {
       key: "twitter-url",
       property: "twitter:url",
-      content: `https://qlnk.netlify.app/`, // Update with OpenKids Africa's website URL
+      content: `https://clnk.netlify.app/`, // Update with OpenKids Africa's website URL
     },
     {
       key: "twitter-title",
@@ -66,7 +66,7 @@ useHead({
     {
       key: "twitter-image",
       property: "twitter:image",
-      content: `https://qlnk.netlify.app/img/qlnk-cover.png`, // Update with OpenKids Africa's image URL
+      content: `https://clnk.netlify.app/img/clnk-cover.png`, // Update with OpenKids Africa's image URL
     },
   ],
   link: [

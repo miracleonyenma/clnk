@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import QlnkLogo from "~/assets/icons/qlnk-logo.svg";
+import ClnkLogo from "~/assets/icons/clnk-logo.svg";
 </script>
 <template>
   <figure>
-    <QlnkLogo class="w-16" />
+    <ClnkLogo class="w-16" />
   </figure>
 </template>

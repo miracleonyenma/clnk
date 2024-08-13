@@ -1,6 +1,6 @@
 {
   "name": "Code Link",
-  "short_name": "qlnk",
+  "short_name": "clnk",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
