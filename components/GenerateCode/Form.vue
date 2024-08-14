@@ -62,6 +62,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
       console.log({ createdURL });
 
       createdURL?.code && urlStore.addURL(createdURL);
+      state.url = "";
       return "Code generated successfully";
     },
     error: () => "Failed to generate code",

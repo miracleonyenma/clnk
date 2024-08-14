@@ -2,22 +2,30 @@
 import useURLStore from "~/store/useURLStore";
 import useUserStore from "~/store/useUserStore";
 
-const accessToken = useCookie("access_token");
-const refreshToken = useCookie("refresh_token");
 const router = useRouter();
 const userStore = useUserStore();
 const urlsStore = useURLStore();
 
-if (accessToken.value && refreshToken.value) {
-  accessToken.value = "";
-  refreshToken.value = "";
-}
-userStore.user = null;
-urlsStore.setURLs([]);
+const handleLogout = async () => {
+  const res = await fetch("/api/logout");
+  const data = await res.json();
 
-setTimeout(() => {
-  router.push("/");
-}, 2000);
+  setTimeout(() => {
+    router.push("/");
+    userStore.user = null;
+    urlsStore.setURLs([]);
+    useCookie("access_token", {
+      maxAge: 0,
+      expires: new Date(),
+    });
+    useCookie("refresh_token", {
+      maxAge: 0,
+      expires: new Date(),
+    });
+  }, 1000);
+};
+
+handleLogout();
 </script>
 <template>
   <main>

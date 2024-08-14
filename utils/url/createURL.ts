@@ -26,7 +26,7 @@ mutation CreateUrl($input: CreateUrlUrlInput!) {
 }
 `;
 
-const createURL = async (input: CreateUrlUrlInput, token: string) => {
+const createURL = async (input: CreateUrlUrlInput, token?: string) => {
   const options: GraphQLRequestOptions = {
     query: CREATE_URL_QUERY,
     variables: {

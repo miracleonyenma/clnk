@@ -53,7 +53,10 @@ const items = [
     :ui="{ item: { disabled: 'cursor-text select-text' } }"
     :popper="{ placement: 'bottom-start' }"
   >
-    <UAvatar src="https://avatars.githubusercontent.com/u/739984?v=4" />
+    <UAvatar
+      :alt="userStore.user?.name"
+      src="https://res.cloudinary.com/alphas/image/upload/v1723638809/clnk/Mask_group_dqbgdt.png"
+    />
 
     <template #account="{ item }">
       <div class="text-left">
