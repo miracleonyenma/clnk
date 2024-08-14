@@ -43,8 +43,8 @@ const state = reactive(
 );
 
 const userStore = useUserStore();
-const accessToken = useCookie("access_token");
-const refreshToken = useCookie("refresh_token");
+const accessToken = useCookie("access_token", { sameSite: "none" });
+const refreshToken = useCookie("refresh_token", { sameSite: "none" });
 
 const loading = ref<boolean>(false);
 const passwordVisible = ref(false);
