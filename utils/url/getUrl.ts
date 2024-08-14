@@ -1,7 +1,10 @@
-import type { GraphQLRequestOptions } from "~/types/graphql";
-import type { URL } from "~/types/url";
+import type { GraphQLRequestOptions } from "../../types/graphql";
+import type { URL } from "../../types/url";
 
 const GRAPHQL_URL = process.env.GRAPHQL_URL;
+const APP_URL = process.env.APP_URL;
+
+console.log("🍇🍇🍇🍇🍇 ~ APP_URL:", APP_URL);
 
 type GetUrlResponse = {
   getUrl: URL;
@@ -25,15 +28,14 @@ query GetUrl($getUrlId: ID, $code: String) {
 }
 `;
 
-const getUrl = async (input: GetUrlInput) => {
+const getUrl = async (input: GetUrlInput, url?: string) => {
   const options: GraphQLRequestOptions = {
     query: GET_URL_QUERY,
     variables: input,
   };
 
-  const isServer = typeof window === "undefined";
   const response = await graphQLRequest<GetUrlResponse>(
-    isServer ? `${GRAPHQL_URL}` : "/api/graphql",
+    url ? url : `/api/graphql`,
     options,
   );
 
