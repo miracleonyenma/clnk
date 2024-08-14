@@ -1,6 +1,8 @@
 import type { GraphQLRequestOptions } from "~/types/graphql";
 import type { URL } from "~/types/url";
 
+const GRAPHQL_URL = process.env.GRAPHQL_URL;
+
 type GetUrlResponse = {
   getUrl: URL;
 };
@@ -29,8 +31,9 @@ const getUrl = async (input: GetUrlInput) => {
     variables: input,
   };
 
+  const isServer = typeof window === "undefined";
   const response = await graphQLRequest<GetUrlResponse>(
-    "/api/graphql",
+    isServer ? `${GRAPHQL_URL}` : "/api/graphql",
     options,
   );
 
