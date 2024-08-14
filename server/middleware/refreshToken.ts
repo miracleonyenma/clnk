@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
       access_token &&
         setCookie(event, "access_token", access_token, {
           sameSite: "lax",
+          domain: "nanoapps.store",
         });
     }
   } catch (error) {

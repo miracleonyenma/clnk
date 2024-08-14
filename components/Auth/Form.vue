@@ -43,8 +43,14 @@ const state = reactive(
 );
 
 const userStore = useUserStore();
-const accessToken = useCookie("access_token", { sameSite: "none" });
-const refreshToken = useCookie("refresh_token", { sameSite: "none" });
+const accessToken = useCookie("access_token", {
+  sameSite: "lax",
+  domain: "nanoapps.store",
+});
+const refreshToken = useCookie("refresh_token", {
+  sameSite: "lax",
+  domain: "nanoapps.store",
+});
 
 const loading = ref<boolean>(false);
 const passwordVisible = ref(false);
