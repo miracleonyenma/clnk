@@ -27,7 +27,17 @@ const useURLStore = defineStore("urls", () => {
 
   const setURLs = (newURLs: URL[]) => {
     urls.value = newURLs;
+    // save to localStorage
+    localStorage.setItem("urls", JSON.stringify(newURLs));
   };
+
+  watch(
+    () => urls.value,
+    (value) => {
+      // save to local storage
+      value.length > 0 && localStorage.setItem("urls", JSON.stringify(value));
+    },
+  );
 
   return {
     urls,

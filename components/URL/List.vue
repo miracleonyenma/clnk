@@ -73,6 +73,13 @@ watch(
 );
 
 onMounted(() => {
+  // get urls from local storage
+  const storedURLsString = localStorage.getItem("urls");
+  if (storedURLsString) {
+    const storedURLs = JSON.parse(storedURLsString);
+    storedURLs.length > 0 && urlStore.setURLs(storedURLs);
+  }
+
   data.refresh();
   observer.value = new IntersectionObserver((entries) => {
     const entry = entries[0];
