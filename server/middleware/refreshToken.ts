@@ -11,8 +11,8 @@ export default defineEventHandler(async (event) => {
       const access_token = data.data?.refreshToken.accessToken;
       access_token &&
         setCookie(event, "access_token", access_token, {
-          sameSite: "lax",
-          domain: "nanoapps.store",
+          sameSite: "none",
+          secure: true,
         });
     }
   } catch (error) {

@@ -44,12 +44,12 @@ const state = reactive(
 
 const userStore = useUserStore();
 const accessToken = useCookie("access_token", {
-  sameSite: "lax",
-  domain: "nanoapps.store",
+  sameSite: "none",
+  secure: true,
 });
 const refreshToken = useCookie("refresh_token", {
-  sameSite: "lax",
-  domain: "nanoapps.store",
+  sameSite: "none",
+  secure: true,
 });
 
 const loading = ref<boolean>(false);
