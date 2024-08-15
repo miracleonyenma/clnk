@@ -25,12 +25,12 @@ const loading = ref<boolean>(false);
 
 const handleConvertToImage = async () => {
   const cont = contRef.value;
-  console.log("🚀🚀🚀🚀🚀🚀 ~ cont", cont);
+  // console.log("🚀🚀🚀🚀🚀🚀 ~ cont", cont);
 
   if (!cont) return;
 
   $htmlToImage.toBlob(cont).then((blob) => {
-    console.log("🚀🚀🚀🚀🚀🚀 ~ blob", blob);
+    // console.log("🚀🚀🚀🚀🚀🚀 ~ blob", blob);
     if (!blob) return;
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
