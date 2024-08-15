@@ -3,7 +3,7 @@ import LoaderIcon from "~/assets/icons/loader.svg";
 
 const route = useRoute();
 const { slug } = route.params;
-const apiUrl = useRuntimeConfig().apiURL || "https://clnk.up.railway.app";
+const apiUrl = useRuntimeConfig().apiURL || "https://clnk.api.m10.live";
 
 navigateTo(`${apiUrl}/${slug}`, {
   external: true,
