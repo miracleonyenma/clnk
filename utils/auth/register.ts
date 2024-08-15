@@ -38,7 +38,7 @@ const registerUser = async (input: RegisterUserInput) => {
     options,
   );
 
-  console.log("🍇🍇🍇🍇🍇 ~ registerUser response:", response);
+  // console.log("🍇🍇🍇🍇🍇 ~ registerUser response:", response);
 
   return response;
 };

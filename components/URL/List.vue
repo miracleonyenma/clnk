@@ -35,7 +35,7 @@ const observer = ref<IntersectionObserver | null>(null);
 watch(
   () => pagination.value,
   (value) => {
-    console.log({ value });
+    // console.log({ value });
 
     data.refresh();
   },
@@ -56,7 +56,7 @@ watch(
 watch(
   () => data.data.value?.data,
   (value) => {
-    console.log({ value });
+    // console.log({ value });
     if (!observer.value) return;
     urlStore.addURLs(value?.getUrls?.data || []);
     // check if there's more data to load
@@ -84,8 +84,6 @@ onMounted(() => {
   observer.value = new IntersectionObserver((entries) => {
     const entry = entries[0];
     if (entry.isIntersecting && hasMore) {
-      console.log("intersecting");
-
       pagination.value.page += 1;
     }
   });

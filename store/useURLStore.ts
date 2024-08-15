@@ -8,7 +8,7 @@ const useURLStore = defineStore("urls", () => {
     // check if the url already exists
     if (urls.value.find((u) => u.id === url.id)) return;
     urls.value = [url, ...urls.value];
-    console.log({ urls: urls.value });
+    // console.log({ urls: urls.value });
   };
 
   const addURLs = (urlList: URL[]) => {

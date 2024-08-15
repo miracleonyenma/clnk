@@ -48,7 +48,7 @@ const handleGenerateCode = async (url: string, code?: string) => {
 };
 
 const onSubmit = async (event: FormSubmitEvent<Schema>) => {
-  console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
+  // console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
 
   // Do something with data
   toast.promise(handleGenerateCode(event.data.url, event.data.code), {
@@ -57,9 +57,9 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
       return "Generating code...";
     },
     success: (data) => {
-      console.log("🚀🚀🚀🚀🚀🚀 ~ data", data);
+      // console.log("🚀🚀🚀🚀🚀🚀 ~ data", data);
       const createdURL = data.data?.createUrl;
-      console.log({ createdURL });
+      // console.log({ createdURL });
 
       createdURL?.code && urlStore.addURL(createdURL);
       state.url = "";

@@ -1,6 +1,8 @@
 import refreshToken from "~/utils/auth/refreshToken";
 
 export default defineEventHandler(async (event) => {
+  // const requestURL = getRequestURL(event)
+
   const refresh_token = getCookie(event, "refresh_token");
   // console.log("🥖🥖🥖🥖🥖🥖🥖 ~ refreshToken: ", refresh_token);
 

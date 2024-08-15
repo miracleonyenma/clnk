@@ -30,7 +30,7 @@ const verifyOTP = async (input: VerifyOTPInput) => {
     options,
   );
 
-  console.log("🍇🍇🍇🍇🍇 ~ verifyOTP response:", response);
+  // console.log("🍇🍇🍇🍇🍇 ~ verifyOTP response:", response);
 
   return response;
 };

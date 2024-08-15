@@ -16,7 +16,7 @@ const canProceed = ref(false);
 const code = ref<string>("");
 
 const handleComplete = async (event: string[]) => {
-  console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
+  // console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
   canProceed.value = event.length == 6;
   code.value = event.join("");
 };
@@ -34,7 +34,7 @@ const handleVerifyOTP = async () => {
         return "Verifying...";
       },
       success: (data) => {
-        console.log("💽💽💽💽💽", data);
+        // console.log("💽💽💽💽💽", data);
         setTimeout(() => {
           router.push("/login");
         }, 2000);

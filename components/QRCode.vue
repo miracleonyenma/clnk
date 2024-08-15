@@ -32,7 +32,7 @@ onMounted(() => {
     qrCode.value = elementById;
   }
 
-  console.log({ qrCode: qrCode.value, qrCodeStyling, elementById });
+  // console.log({ qrCode: qrCode.value, qrCodeStyling, elementById });
 
   if (qrCode.value) {
     emit("update-download", qrCodeStyling.download);
@@ -49,7 +49,7 @@ watch(
   (data) => {
     const qrCodeStyling = $qrCodeStyling(options);
 
-    console.log({ qrCode: qrCode.value });
+    // console.log({ qrCode: qrCode.value });
 
     qrCodeStyling.update({ data });
     qrCode.value!.firstElementChild!.setAttribute(

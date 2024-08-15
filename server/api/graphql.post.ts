@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
 
     const data = await graphqlRequest(GRAPHQL_URL, options, headers);
 
-    console.log("🍊🍊🍊🍊🍊🍊🍊🍊 ~ data:", data);
+    // console.log("🍊🍊🍊🍊🍊🍊🍊🍊 ~ data:", data);
 
     return data;
   } catch (error: any) {

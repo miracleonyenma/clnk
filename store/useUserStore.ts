@@ -8,21 +8,21 @@ const useUserStore = defineStore("user", () => {
     user.value = newUser;
   };
 
-  watch(
-    () => user.value,
-    (newUser) => {
-      localStorage.setItem("user", JSON.stringify(newUser));
-    },
-    { deep: true },
-  );
+  // watch(
+  //   () => user.value,
+  //   (newUser) => {
+  //     localStorage.setItem("user", JSON.stringify(newUser));
+  //   },
+  //   { deep: true },
+  // );
 
-  onMounted(() => {
-    const userString = localStorage.getItem("user");
-    if (userString) {
-      const userObject = JSON.parse(userString);
-      setUser(userObject);
-    }
-  });
+  // onMounted(() => {
+  //   const userString = localStorage.getItem("user");
+  //   if (userString) {
+  //     const userObject = JSON.parse(userString);
+  //     setUser(userObject);
+  //   }
+  // });
 
   return {
     user,

@@ -55,7 +55,7 @@ const loginUser = async (input: LoginUserInput) => {
     options,
   );
 
-  console.log("🍇🍇🍇🍇🍇 ~ loginUser response:", response);
+  // console.log("🍇🍇🍇🍇🍇 ~ loginUser response:", response);
 
   return response;
 };

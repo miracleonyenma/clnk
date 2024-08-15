@@ -39,7 +39,7 @@ const getUrl = async (input: GetUrlInput, url?: string) => {
     options,
   );
 
-  console.log("🍇🍇🍇🍇🍇 ~ getUrl response:", response);
+  // console.log("🍇🍇🍇🍇🍇 ~ getUrl response:", response);
 
   return response;
 };

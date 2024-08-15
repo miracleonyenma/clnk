@@ -60,7 +60,7 @@ const showVarifyEmailDrawer = ref(false);
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with data
-  console.log(event.data);
+  // console.log(event.data);
 
   if (type == "register") {
     toast.promise(
@@ -75,7 +75,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           return "Registering...";
         },
         success: (data) => {
-          console.log(data);
+          // console.log(data);
           if (data?.data?.register?.user)
             registeredUser.value = data.data?.register?.user;
           else throw new Error("Something went wrong");
@@ -103,7 +103,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           return "Logging in...";
         },
         success: (data) => {
-          console.log(data);
+          // console.log(data);
 
           if (data?.data?.login?.user) {
             userStore.setUser(data.data?.login?.user);
@@ -132,7 +132,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 watch(
   () => registeredUser.value?.id,
   (value) => {
-    console.log({ value });
+    // console.log({ value });
     value
       ? (showVarifyEmailDrawer.value = true)
       : (showVarifyEmailDrawer.value = false);

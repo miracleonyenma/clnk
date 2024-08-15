@@ -66,7 +66,7 @@ const getUrls = async (input: GetUrlsUrlInput) => {
     options,
   );
 
-  console.log("🍇🍇🍇🍇🍇 ~ getUrls response:", response);
+  // console.log("🍇🍇🍇🍇🍇 ~ getUrls response:", response);
 
   return response;
 };
