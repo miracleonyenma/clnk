@@ -3,9 +3,9 @@ import LoaderIcon from "~/assets/icons/loader.svg";
 
 const route = useRoute();
 const { slug } = route.params;
-const appURL = useRuntimeConfig().appURL || "https://clnk.netlify.app";
+const apiUrl = useRuntimeConfig().apiURL || "https://clnk.up.railway.app";
 
-navigateTo(`${appURL}/${slug}`, {
+navigateTo(`${apiUrl}/${slug}`, {
   external: true,
 });
 
