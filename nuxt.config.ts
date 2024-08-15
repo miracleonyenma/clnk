@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     apiKey: process.env.API_KEY,
     apiURL: process.env.API_URL,
     graphqlURL: process.env.GRAPHQL_URL,
+    appURL: process.env.APP_URL,
   },
   tailwindcss: {
     configPath: "~/tailwind.config.ts",
@@ -26,6 +27,6 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxt/ui",
     "@pinia/nuxt",
-    "@nuxt/fonts"
+    "@nuxt/fonts",
   ],
 });

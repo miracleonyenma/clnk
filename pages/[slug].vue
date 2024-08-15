@@ -3,8 +3,9 @@ import LoaderIcon from "~/assets/icons/loader.svg";
 
 const route = useRoute();
 const { slug } = route.params;
+const appURL = useRuntimeConfig().appURL || "https://clnk.netlify.app";
 
-navigateTo(`http://localhost:8000/${slug}`, {
+navigateTo(`${appURL}/${slug}`, {
   external: true,
 });
 
