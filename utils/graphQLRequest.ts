@@ -75,7 +75,7 @@ const graphqlRequest = async <T>(
     throw new Error(`${response.statusText}`);
   }
 
-  console.log("👕👕👕👕👕👕 ~ responseBody:", responseBody);
+  // console.log("👕👕👕👕👕👕 ~ responseBody:", responseBody);
 
   return responseBody;
 };
