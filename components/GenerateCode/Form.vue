@@ -12,6 +12,8 @@ const urlStore = useURLStore();
 
 const schema = z.object({
   url: z.string().url("Invalid URL"),
+  image: z.string().url("Invalid URL").optional(),
+  shorten: z.boolean().optional(),
   // must be at least 3 characters long and only url safe characters
   code: z
     .string()
@@ -27,16 +29,29 @@ const form = ref();
 const state = reactive({
   url: "",
   code: undefined,
+  shortUrl: "",
+  image: "",
+  shorten: true,
 });
 
 const loading = ref<boolean>(false);
+const showOptions = ref<boolean>(false);
 
-const handleGenerateCode = async (url: string, code?: string) => {
+const handleGenerateCode = async (input: {
+  url: string;
+  code?: string;
+  image?: string;
+  shorten?: boolean;
+}) => {
   try {
-    const data: Schema = { url: state.url };
+    const data: Schema = {
+      url: input.url,
+      image: input.image,
+      shorten: input.shorten,
+    };
     state.code && (data.code = state.code);
 
-    const response = await createURL({ url: state.url, code: state.code });
+    const response = await createURL(data);
     console.log("⛑️⛑️⛑️⛑️⛑️ ~ response", response);
 
     return response;
@@ -48,28 +63,35 @@ const handleGenerateCode = async (url: string, code?: string) => {
 };
 
 const onSubmit = async (event: FormSubmitEvent<Schema>) => {
-  // console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
+  console.log("🚀🚀🚀🚀🚀🚀 ~ event", event);
 
   // Do something with data
-  toast.promise(handleGenerateCode(event.data.url, event.data.code), {
-    loading: () => {
-      loading.value = true;
-      return "Generating code...";
-    },
-    success: (data) => {
-      // console.log("🚀🚀🚀🚀🚀🚀 ~ data", data);
-      const createdURL = data.data?.createUrl;
-      // console.log({ createdURL });
+  toast.promise(
+    handleGenerateCode({
+      url: event.data.url,
+      image: event.data.image,
+      shorten: event.data.shorten,
+    }),
+    {
+      loading: () => {
+        loading.value = true;
+        return "Generating code...";
+      },
+      success: (data) => {
+        // console.log("🚀🚀🚀🚀🚀🚀 ~ data", data);
+        const createdURL = data.data?.createUrl;
+        // console.log({ createdURL });
 
-      createdURL?.code && urlStore.addURL(createdURL);
-      state.url = "";
-      return "Code generated successfully";
+        createdURL?.code && urlStore.addURL(createdURL);
+        state.url = "";
+        return "Code generated successfully";
+      },
+      error: () => "Failed to generate code",
+      finally: () => {
+        loading.value = false;
+      },
     },
-    error: () => "Failed to generate code",
-    finally: () => {
-      loading.value = false;
-    },
-  });
+  );
 };
 </script>
 
@@ -94,11 +116,31 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
           icon="i-solar:link-minimalistic-bold-duotone"
         />
       </UFormGroup>
+      <template v-if="showOptions">
+        <UFormGroup name="image">
+          <UInput
+            v-model="state.image"
+            type="text"
+            placeholder="Enter your image URL"
+            class="form-input font-mono outline-none"
+            input-class="rounded-none border-none bg-transparent !ring-0 shadow-none"
+            icon="i-solar:link-minimalistic-bold-duotone"
+          />
+        </UFormGroup>
+        <UFormGroup name="checkbox">
+          <UCheckbox v-model="state.shorten" label="Shorten URL" />
+        </UFormGroup>
+      </template>
 
-      <button :disabled="loading" class="btn primary w-full" type="submit">
-        <span v-if="!loading"> Generate code </span>
-        <LoaderIcon v-if="loading" class="icon animate-spin" />
-      </button>
+      <div class="action-cont flex flex-wrap gap-2">
+        <button @click="showOptions = !showOptions" type="button" class="btn">
+          <UIcon name="i-solar:settings-bold-duotone" class="icon" />
+        </button>
+        <button :disabled="loading" class="btn primary grow" type="submit">
+          <span v-if="!loading"> Generate code </span>
+          <LoaderIcon v-if="loading" class="icon animate-spin" />
+        </button>
+      </div>
     </UForm>
   </div>
 </template>

@@ -8,6 +8,8 @@ type CreateUrlResponse = {
 type CreateUrlInput = {
   url: string;
   code?: string;
+  image?: string;
+  shorten?: boolean;
 };
 
 const CREATE_URL_QUERY = `#graphql
@@ -22,6 +24,8 @@ mutation CreateUrl($input: CreateUrlInput!) {
       name
     }
     createdAt
+    image
+    updatedAt
   }
 }
 `;
