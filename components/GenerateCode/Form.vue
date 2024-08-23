@@ -12,7 +12,7 @@ const urlStore = useURLStore();
 
 const schema = z.object({
   url: z.string().url("Invalid URL"),
-  image: z.string().url("Invalid URL").optional(),
+  image: z.string().url("Invalid URL").optional().or(z.literal("")),
   shorten: z.boolean().optional(),
   // must be at least 3 characters long and only url safe characters
   code: z
@@ -30,7 +30,7 @@ const state = reactive({
   url: "",
   code: undefined,
   shortUrl: "",
-  image: "",
+  image: undefined,
   shorten: true,
 });
 
