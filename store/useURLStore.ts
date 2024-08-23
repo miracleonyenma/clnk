@@ -21,8 +21,12 @@ const useURLStore = defineStore("urls", () => {
 
   const removeURL = (id: string) => {
     const index = urls.value.findIndex((u) => u.id === id);
+    console.log({ index });
+
     if (index === -1) return;
-    urls.value.filter((u, i) => i !== index);
+    const filteredUrls = urls.value.filter((u, i) => i !== index);
+    urls.value = filteredUrls;
+    console.log("urls ============>", urls.value);
   };
 
   const setURLs = (newURLs: URL[]) => {

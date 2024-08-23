@@ -4,7 +4,6 @@ import getUrls from "~/utils/url/getUrls";
 import LoaderIcon from "~/assets/icons/loader.svg";
 
 const urlStore = useURLStore();
-const { urls } = storeToRefs(urlStore);
 
 const pagination = ref({
   page: 1,
@@ -88,10 +87,24 @@ onMounted(() => {
     }
   });
 });
+
+watch(
+  () => urlStore.urls,
+  (value) => {
+    console.log({ value });
+  },
+  {
+    deep: true,
+  },
+);
 </script>
 <template>
+  <p class="pb-12 text-center">
+    <!-- number of urls -->
+    {{ urlStore.urls.length }} code links
+  </p>
   <ul class="url-list">
-    <li v-for="url in urls" :key="url.id" class="relative">
+    <li v-for="url in urlStore.urls" :key="url.id" class="relative">
       <URLCard :key="url.id + url.image" :id="url.id" :url="url" />
     </li>
   </ul>

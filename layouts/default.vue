@@ -16,7 +16,7 @@ user && useUser.setUser(user);
 // console.log({ data });
 
 watch(
-  () => route.fullPath,
+  () => route.path,
   () => {
     console.log(
       "🚀 ~ file: default.vue ~ line 10 ~ route.fullPath",

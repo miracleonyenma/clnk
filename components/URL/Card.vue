@@ -2,6 +2,8 @@
 import { toast } from "vue-sonner";
 import type { URL } from "~/types/url";
 import { useClipboard } from "~/composables/useClipboard";
+import deleteURL from "~/utils/url/deleteURL";
+import useURLStore from "~/store/useURLStore";
 
 const props = defineProps<{
   url: URL;
@@ -12,6 +14,11 @@ const props = defineProps<{
 const emit = defineEmits(["update-download"]);
 
 const { copyToClipboard } = useClipboard();
+const urlStore = useURLStore();
+const isOpen = ref(false);
+const state = reactive({
+  code: "",
+});
 
 const options = computed(() => {
   const obj: { [key: string]: string } = {};
@@ -27,8 +34,25 @@ const handleCopy = () => {
   });
 };
 
-const handleComingSoon = () => {
-  toast.info("Coming soon");
+const deleteUrl = async (id: string) => {
+  try {
+    const response = await deleteURL(id);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const handleDeleteURL = () => {
+  toast.promise(deleteUrl(props.url.id), {
+    loading: "Deleting...",
+    success: () => {
+      urlStore.setURLs(urlStore.urls.filter((url) => url.id !== props.url.id));
+      isOpen.value = false;
+      return "Link deleted successfully";
+    },
+    error: () => "Failed to delete link",
+  });
 };
 </script>
 <template>
@@ -93,7 +117,7 @@ const handleComingSoon = () => {
             class="action-cont flex justify-between gap-4"
           >
             <div class="action-group flex gap-2 pb-1">
-              <button @click="handleComingSoon" class="btn danger">
+              <button @click="() => (isOpen = true)" class="btn danger">
                 <UIcon
                   name="i-solar:trash-bin-minimalistic-bold-duotone"
                   class="icon"
@@ -118,4 +142,53 @@ const handleComingSoon = () => {
       </div>
     </div>
   </div>
+  <UModal v-model="isOpen">
+    <UCard
+      :ui="{
+        ring: '',
+        divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+      }"
+    >
+      <template #header>
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold lg:text-2xl">
+            Are you sure you want to delete this link?
+          </h3>
+          <button class="btn ghost" @click="() => (isOpen = false)">
+            <UIcon name="i-solar:close-circle-bold-duotone" class="icon" />
+          </button>
+        </div>
+      </template>
+
+      <div class="flex flex-col gap-4">
+        <p class="text-gray-600 dark:text-gray-400">
+          This action cannot be undone. This will permanently delete the link
+          and its data.
+        </p>
+        <p class="text-gray-600 dark:text-gray-400">
+          Please type <code>{{ url.code }}</code> to confirm.
+        </p>
+        <UInput
+          v-model="state.code"
+          type="text"
+          placeholder="Enter the code to confirm"
+          class="form-input font-mono outline-none"
+          input-class="rounded-none !px-4 border-none bg-transparent !ring-0 shadow-none"
+        />
+      </div>
+
+      <template #footer>
+        <div class="flex justify-end gap-4">
+          <button @click="() => (isOpen = false)" class="btn">Cancel</button>
+          <button
+            :disabled="state.code !== url.code"
+            @click="handleDeleteURL"
+            class="btn danger"
+          >
+            Delete
+          </button>
+        </div>
+      </template>
+    </UCard>
+  </UModal>
 </template>
