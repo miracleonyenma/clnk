@@ -2,6 +2,7 @@
 import useUserStore from "~/store/useUserStore";
 import me from "~/utils/auth/me";
 
+const route = useRoute();
 const useUser = useUserStore();
 
 const { data, refresh } = useAsyncData("user", async () => {
@@ -13,6 +14,19 @@ const user = data?.value?.data?.me;
 user && useUser.setUser(user);
 
 // console.log({ data });
+
+watch(
+  () => route.fullPath,
+  () => {
+    console.log(
+      "🚀 ~ file: default.vue ~ line 10 ~ route.fullPath",
+      route.fullPath,
+    );
+
+    if (user?.id) return;
+    refresh();
+  },
+);
 
 onMounted(() => {
   refresh();

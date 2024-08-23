@@ -22,6 +22,7 @@ query GetUrl($getUrlId: ID, $code: String) {
     url
     shortUrl
     code
+    image
     createdAt
     updatedAt
   }

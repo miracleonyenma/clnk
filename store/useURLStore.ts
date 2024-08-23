@@ -16,7 +16,7 @@ const useURLStore = defineStore("urls", () => {
     const newUrls = urlList.filter(
       (url) => !urls.value.find((u) => u.id === url.id),
     );
-    urls.value = [...newUrls, ...urls.value];
+    urls.value = [...urls.value, ...newUrls];
   };
 
   const removeURL = (id: string) => {

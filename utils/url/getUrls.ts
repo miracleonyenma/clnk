@@ -34,6 +34,7 @@ query GetUrls($pagination: Pagination, $filter: UrlFilter) {
       url
       shortUrl
       code
+      image
       user {
         id
         name

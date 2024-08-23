@@ -92,7 +92,7 @@ onMounted(() => {
 <template>
   <ul class="url-list">
     <li v-for="url in urls" :key="url.id" class="relative">
-      <URLCard :id="url.id" :url="url" />
+      <URLCard :key="url.id + url.image" :id="url.id" :url="url" />
     </li>
   </ul>
   <div
