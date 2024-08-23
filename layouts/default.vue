@@ -28,6 +28,15 @@ watch(
   },
 );
 
+watch(
+  () => data.value && data.value.data,
+  () => {
+    if (data.value?.data?.me) {
+      useUser.setUser(data.value.data.me);
+    }
+  },
+);
+
 onMounted(() => {
   refresh();
 });
