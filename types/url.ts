@@ -3,6 +3,7 @@ export type URL = {
   url: string;
   shortUrl: string;
   code: string;
+  image?: string;
   user: {
     id: string;
     name: string;

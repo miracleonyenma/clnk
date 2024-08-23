@@ -31,6 +31,12 @@ const useURLStore = defineStore("urls", () => {
     localStorage.setItem("urls", JSON.stringify(newURLs));
   };
 
+  const setURL = (url: URL) => {
+    const index = urls.value.findIndex((u) => u.id === url.id);
+    if (index === -1) return;
+    urls.value[index] = url;
+  };
+
   watch(
     () => urls.value,
     (value) => {
@@ -45,6 +51,7 @@ const useURLStore = defineStore("urls", () => {
     addURLs,
     removeURL,
     setURLs,
+    setURL,
   };
 });
 

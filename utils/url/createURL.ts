@@ -5,13 +5,13 @@ type CreateUrlResponse = {
   createUrl: URL;
 };
 
-type CreateUrlUrlInput = {
+type CreateUrlInput = {
   url: string;
   code?: string;
 };
 
 const CREATE_URL_QUERY = `#graphql
-mutation CreateUrl($input: CreateUrlUrlInput!) {
+mutation CreateUrl($input: CreateUrlInput!) {
   createUrl(input: $input){
     id
     url
@@ -26,7 +26,7 @@ mutation CreateUrl($input: CreateUrlUrlInput!) {
 }
 `;
 
-const createURL = async (input: CreateUrlUrlInput, token?: string) => {
+const createURL = async (input: CreateUrlInput, token?: string) => {
   const options: GraphQLRequestOptions = {
     query: CREATE_URL_QUERY,
     variables: {

@@ -13,6 +13,12 @@ const emit = defineEmits(["update-download"]);
 
 const { copyToClipboard } = useClipboard();
 
+const options = computed(() => {
+  const obj: { [key: string]: string } = {};
+  props.url.image && (obj.image = props.url.image);
+  return obj;
+});
+
 const handleCopy = () => {
   toast.promise(copyToClipboard(props.url.shortUrl), {
     loading: "Copying...",
@@ -43,7 +49,7 @@ const handleComingSoon = () => {
       >
         <ClientOnly>
           <div class="rounded-lg bg-white p-2">
-            <QRCode :id="id" :data="url.shortUrl" :options="{}" />
+            <QRCode :id="id" :data="url.shortUrl" :options="options" />
           </div>
         </ClientOnly>
 
@@ -93,9 +99,11 @@ const handleComingSoon = () => {
                   class="icon"
                 />
               </button>
-              <button @click="handleComingSoon" class="btn secondary">
-                <UIcon name="i-solar:pen-bold-duotone" class="icon" />
-              </button>
+              <URLEditDrawer :url="url">
+                <button class="btn secondary">
+                  <UIcon name="i-solar:pen-bold-duotone" class="icon" />
+                </button>
+              </URLEditDrawer>
             </div>
             <!-- <div class="action-group flex gap-2">
             <button class="btn">
