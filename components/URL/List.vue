@@ -99,9 +99,11 @@ watch(
 );
 </script>
 <template>
-  <p class="pb-12 text-center">
+  <p v-if="urlStore.urls.length > 0" class="pb-12 text-center">
     <!-- number of urls -->
-    {{ urlStore.urls.length }} code links
+    {{ urlStore.urls.length }} code link{{
+      urlStore.urls.length > 1 ? "s" : ""
+    }}
   </p>
   <ul class="url-list">
     <li v-for="url in urlStore.urls" :key="url.id" class="relative">
