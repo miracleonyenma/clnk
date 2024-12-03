@@ -19,5 +19,16 @@ export default defineEventHandler(async (event) => {
     }
   } catch (error) {
     console.log("🚨🚨🚨🚨🚨🚨🚨🚨🚨 ~ error:", error);
+    setCookie(event, "access_token", "", {
+      expires: new Date(0),
+      sameSite: "none",
+      secure: true,
+    });
+
+    setCookie(event, "refresh_token", "", {
+      expires: new Date(0),
+      sameSite: "none",
+      secure: true,
+    });
   }
 });
