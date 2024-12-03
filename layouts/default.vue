@@ -45,5 +45,6 @@ onMounted(() => {
   <div>
     <SiteHeader />
     <slot />
+    <PanaceaWidget />
   </div>
 </template>

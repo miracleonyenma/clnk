@@ -23,6 +23,9 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.5.2
         version: 0.5.2(magicast@0.3.4)(rollup@4.19.1)(vue@3.4.34)
+      '@trypanacea/sdk':
+        specifier: ^0.0.17
+        version: 0.0.17
       html-to-image:
         specifier: ^1.11.11
         version: 1.11.11
@@ -1152,6 +1155,9 @@ packages:
     resolution: {integrity: sha512-4Pq8odunHQPsTg2iE2yzWdzYed/8LySy2knxqJYkaNOQRXbqJ7O/Owpoon8ZM9L+jLL1faM5TVHV0eJxm68q8A==}
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
+
+  '@trypanacea/sdk@0.0.17':
+    resolution: {integrity: sha512-LtPFtzKWLQPkacMctGRVqaU+rCjEMb58r1sU85VmFB6Bf2k8ux987sIgTkt1kKMitcus7SPwJG26e1iAnrdqzQ==}
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -5226,6 +5232,8 @@ snapshots:
     dependencies:
       '@tanstack/virtual-core': 3.8.4
       vue: 3.4.34
+
+  '@trypanacea/sdk@0.0.17': {}
 
   '@trysound/sax@0.2.0': {}
 
