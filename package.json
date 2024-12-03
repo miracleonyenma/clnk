@@ -15,7 +15,7 @@
     "@nuxt/icon": "^1.4.3",
     "@nuxt/ui": "^2.18.3",
     "@pinia/nuxt": "^0.5.2",
-    "@trypanacea/sdk": "^0.0.17",
+    "@trypanacea/sdk": "^0.0.18",
     "html-to-image": "^1.11.11",
     "nuxt": "^3.12.4",
     "nuxt-svgo": "^4.0.2",
