@@ -24,8 +24,8 @@ importers:
         specifier: ^0.5.2
         version: 0.5.2(magicast@0.3.4)(rollup@4.19.1)(vue@3.4.34)
       '@trypanacea/sdk':
-        specifier: ^0.0.18
-        version: 0.0.18
+        specifier: ^0.0.19
+        version: 0.0.19
       html-to-image:
         specifier: ^1.11.11
         version: 1.11.11
@@ -1156,8 +1156,8 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@trypanacea/sdk@0.0.18':
-    resolution: {integrity: sha512-AOSxsD52xmqviZ1pzmRZBPtaKP4DAoUrWpVYMryaBe6NOzL6vyRQHka6KxUNOo7MCi14cSRhmNGCs6jwcsXrBQ==}
+  '@trypanacea/sdk@0.0.19':
+    resolution: {integrity: sha512-ODKNd/UuRnHot3DXAXz1kLScEmHnz0cDsS4MQqJYyJQoc/FxTMoSjlaEBfofBcb4vEYSZ85UXygYPC85HPYwbg==}
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -5233,7 +5233,7 @@ snapshots:
       '@tanstack/virtual-core': 3.8.4
       vue: 3.4.34
 
-  '@trypanacea/sdk@0.0.18': {}
+  '@trypanacea/sdk@0.0.19': {}
 
   '@trysound/sax@0.2.0': {}
 
