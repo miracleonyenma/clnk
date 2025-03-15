@@ -43,6 +43,12 @@ export default defineEventHandler(async (event) => {
 
     return data;
   } catch (error: any) {
+    // clear cookies
+    setCookie(event, "access_token", "", {
+      expires: new Date(0),
+      sameSite: "none",
+      secure: true,
+    });
     throw createError({
       statusCode: 500,
       statusMessage: error.message,
